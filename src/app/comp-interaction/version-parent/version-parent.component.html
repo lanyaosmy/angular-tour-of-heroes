@@ -1,0 +1,9 @@
+<ng-container>
+  <button (click)="newMinor()">New Minor</button>
+  <button (click)="newMajor()">New Major</button>
+  <app-version-child
+    [major]="major"
+    [minor]="minor"
+    name="'123'"
+  ></app-version-child>
+</ng-container>
