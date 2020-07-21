@@ -3,22 +3,24 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
+import { InMemoryDataService } from './services/in-memory-data.service';
 
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { HerosComponent } from './heros/heros.component';
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import { MessagesComponent } from './messages/messages.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { HeroSearchComponent } from './hero-search/hero-search.component';
+import { HerosComponent } from './modules/heros/heros.component';
+import { HeroDetailComponent } from './modules/hero-detail/hero-detail.component';
+import { MessagesComponent } from './modules/messages/messages.component';
+import { DashboardComponent } from './modules/dashboard/dashboard.component';
+import { HeroSearchComponent } from './modules/hero-search/hero-search.component';
 import { HighlightDirective } from './highlight.directive';
 import { UnlessDirective } from './unless.directive';
 import { ExponentialStrengthPipe } from './exponential-strength.pipe';
-import { VersionChildComponent } from './comp-interaction/version-child/version-child.component';
-import { VersionParentComponent } from './comp-interaction/version-parent/version-parent.component';
-import { CompInteractionComponent } from './comp-interaction/comp-interaction/comp-interaction.component';
+import { VersionChildComponent } from './modules/comp-interaction/version-child/version-child.component';
+import { VersionParentComponent } from './modules/comp-interaction/version-parent/version-parent.component';
+import { CompInteractionComponent } from './modules/comp-interaction/comp-interaction/comp-interaction.component';
+import { MissionControlComponent } from './modules/mission-control/mission-control.component';
+import { AstronautComponent } from './modules/astronaut/astronaut.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { CompInteractionComponent } from './comp-interaction/comp-interaction/co
     VersionChildComponent,
     VersionParentComponent,
     CompInteractionComponent,
+    MissionControlComponent,
+    AstronautComponent,
   ],
   imports: [
     BrowserModule,

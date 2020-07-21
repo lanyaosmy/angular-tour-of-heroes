@@ -2,8 +2,13 @@
   <button (click)="newMinor()">New Minor</button>
   <button (click)="newMajor()">New Major</button>
   <app-version-child
+    #timer
     [major]="major"
     [minor]="minor"
     name="'123'"
+    (voted)="onVoted($event)"
   ></app-version-child>
+  <button (click)="start()">start</button>
+  <button (click)="stop()">stop</button>
+  <div class="seconds">{{ seconds() }}</div>
 </ng-container>

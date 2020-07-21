@@ -5,4 +5,8 @@
     <li *ngFor="let change of changeLog">{{ change }}</li>
   </ul>
   <h3>{{ name }}</h3>
+  <button (click)="vote(true)" [disabled]="didVote">Agree</button>
+  <button (click)="vote(false)" [disabled]="didVote">Disagree</button>
+
+  <p>{{ message }}</p>
 </ng-container>
