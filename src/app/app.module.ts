@@ -5,6 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data.service';
 
+import { httpInterceptorProviders } from './interceptors';
+
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -51,7 +53,7 @@ import { AstronautComponent } from './modules/astronaut/astronaut.component';
       dataEncapsulation: false,
     }),
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
