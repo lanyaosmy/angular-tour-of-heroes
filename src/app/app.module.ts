@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data.service';
@@ -23,6 +23,16 @@ import { VersionParentComponent } from './modules/comp-interaction/version-paren
 import { CompInteractionComponent } from './modules/comp-interaction/comp-interaction/comp-interaction.component';
 import { MissionControlComponent } from './modules/mission-control/mission-control.component';
 import { AstronautComponent } from './modules/astronaut/astronaut.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { zh_CN } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import zh from '@angular/common/locales/zh';
+import { ForbiddenNameDirective } from './directives/forbidden-name.directive';
+import { AlterEgoDirective } from './directives/alter-ego.directive';
+import { IdentityRevealedDirective } from './directives/identity-revealed.directive';
+
+registerLocaleData(zh);
 
 @NgModule({
   declarations: [
@@ -40,11 +50,15 @@ import { AstronautComponent } from './modules/astronaut/astronaut.component';
     CompInteractionComponent,
     MissionControlComponent,
     AstronautComponent,
+    ForbiddenNameDirective,
+    AlterEgoDirective,
+    IdentityRevealedDirective,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
@@ -52,8 +66,9 @@ import { AstronautComponent } from './modules/astronaut/astronaut.component';
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
       dataEncapsulation: false,
     }),
+    BrowserAnimationsModule,
   ],
-  providers: [httpInterceptorProviders],
+  providers: [httpInterceptorProviders, { provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

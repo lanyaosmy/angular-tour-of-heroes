@@ -12,13 +12,24 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'detail/:id', component: HeroDetailComponent },
   { path: 'interaction', component: CompInteractionComponent },
-  { path: 'orders', loadChildren: () => import('./modules/orders/orders.module').then(m => m.OrdersModule) },
+  {
+    path: 'orders',
+    loadChildren: () =>
+      import('./modules/orders/orders.module').then((m) => m.OrdersModule),
+  },
+  {
+    path: 'form',
+    loadChildren: () =>
+      import('./modules/form/form.module').then((m) => m.FormModule),
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{
-    preloadingStrategy: PreloadAllModules
-  })],
+  imports: [
+    RouterModule.forRoot(routes, {
+      preloadingStrategy: PreloadAllModules,
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
